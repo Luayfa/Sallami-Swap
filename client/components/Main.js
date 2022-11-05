@@ -30,7 +30,7 @@ const Main = () => {
                 <div className={style.transferPropContainer}>
                     <input
                     type="text"
-                    className={style.transderPropInput}
+                    className={style.transferPropInput}
                     placeholder="0.0"
                     pattern='^[0-9]*[.,]?[0-9]*$'
                     onChange={e => handleChange(e, 'amount')}
