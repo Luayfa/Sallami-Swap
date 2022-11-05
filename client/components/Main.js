@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
-import eth from '../assets/eth.png'
+import ethlog from '../assets/ethlog.png'
 
 const style = {
     wrapper: `w-screen flex items-center justify-center mt-14`,
@@ -38,12 +38,25 @@ const Main = () => {
                     <div className={style.currencySelector}>
                         <div className={style.currencySelectorContent}>
                             <div className={style.currencySelectorIcon}>
-                                <Image src={eth} alt="eth logo" height={20} width={20}/>
+                                <Image src={ethlog} alt="eth logo" height={20} width={20} />
                             </div>
+                            <div className={style.currencySelectorTicker}>ETH</div>
+                            <AiOutlineDown className={style.currencySelectorArrow} />
                         </div>
                     </div>
                 </div>
-
+                <div className={style.transferPropContainer}>
+                    <input 
+                        type="text" 
+                        className={style.transferPropInput}
+                        placeholder="0x ... "
+                        onChange={(e) => handleChange(e, 'addressTo')}
+                    />
+                    <div className={style.currencySelector}></div>
+                </div>
+                <div onClick={(e) => handleSubmit(e)} className={style.confirmButton}>
+                    Confirm
+                </div>
             </div>
         </div>
     )

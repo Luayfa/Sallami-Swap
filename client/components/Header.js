@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { AiOutlineDown } from 'react-icons/ai'
 import { HiOutlineDotsVertical } from 'react-icons/hi'
-import eth from '../assets/eth.png'
+import ethlog from '../assets/ethlog.png'
 import dragon from '../assets/dragon.png'
 
 const style = {
@@ -73,7 +73,7 @@ const Header = () => {
         <div className={style.buttonsContainer}>
             <div className={`${style.button} ${style.buttonPadding}`}>
                 <div className={style.buttonIconContainer}>
-                    <Image src={eth} alt="eth logo" height={20} width={20} />
+                    <Image src={ethlog} alt="eth logo" height={20} width={20} />
                 </div>
                 <p>Ethereum</p>
                 <div className={style.buttonIconContainer}>
