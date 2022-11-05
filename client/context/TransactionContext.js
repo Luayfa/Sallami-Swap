@@ -16,12 +16,14 @@ const TransactionProvider = ({children}) => {
 
         try {
     
-            if (!metamask) return alert('Please install metamask')
-        
+        if (!metamask) return alert('Please install metamask')
         const accounts = await metamask.request({method: 'eth_requestAccounts' })
-        
         setCurrentAccount(accounts[0])
         
+    } catch (error) {
+
     }
+
    }
+   
 }
