@@ -4,7 +4,7 @@ import { TransactionProvider } from '../context/TransactionContext'
 function MyApp({ Component, pageProps }) {
   return (
   <TransactionProvider>
-  <Component {...pageProps} />
+    <Component {...pageProps} />
   </TransactionProvider>
   )
 }
