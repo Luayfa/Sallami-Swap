@@ -24,7 +24,7 @@ const style = {
 
 const Header = () => {
     const [selectedNav, setSelectedNav] = useState('swap')
-    const {connectWallet, currentAccount } = useContext(TransactionContext)
+    const {connectWallet, currentAccount} = useContext(TransactionContext)
 
     return (
         <div className={style.wrapper}>
@@ -84,7 +84,7 @@ const Header = () => {
 
            {currentAccount ? (
             <div className={`${style.button} ${style.buttonPadding}`}>
-                <div className={style.buttonTextContainer}>{userName}</div>
+                <div className={style.buttonTextContainer}>username</div>
             </div>
             ) : (
             <div 
