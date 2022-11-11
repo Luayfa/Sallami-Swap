@@ -22,11 +22,14 @@ const style = {
     buttonAccent: `bg-[#172A42] border border-[#163256] hover:border-[#234169] h-full rounded-2xl flex items-center justify-center text-[#4F90EA]`,
   }
 
-const Header = () => {
+  const Header = () => {
     const [selectedNav, setSelectedNav] = useState('swap')
-    const {connectWallet, currentAccount} = useContext(TransactionContext)
+    const [userName, setUserName] = useState()
+    const { connectWallet, currentAccount } = useContext(TransactionContext)
 
-    return (
+
+    
+      return (
         <div className={style.wrapper}>
             <div className={style.headerLogo}>
                 <Image src={dragon} alt="logo" height={40} width={40} />
@@ -38,7 +41,6 @@ const Header = () => {
                     className={`${style.navItem} ${
                         selectedNav === 'swap' && style.activeNavItem
                     } `}
-                
                 >
                   Swap
                 </div>
@@ -47,7 +49,6 @@ const Header = () => {
                     className={`${style.navItem} ${
                         selectedNav === 'pool' && style.activeNavItem
                     } `}
-                
                 >
                   Pool
                 </div>
@@ -55,8 +56,7 @@ const Header = () => {
                     onClick={() => setSelectedNav('vote')}
                     className={`${style.navItem} ${
                         selectedNav === 'vote' && style.activeNavItem
-                    } `}
-                
+                    } `}   
                 >
                   Vote
                 </div>
@@ -84,8 +84,8 @@ const Header = () => {
 
            {currentAccount ? (
             <div className={`${style.button} ${style.buttonPadding}`}>
-                <div className={style.buttonTextContainer}>username</div>
-            </div>
+            <div className={style.buttonTextContainer}>0x3E7B...</div>
+        </div>
             ) : (
             <div 
                 onClick={() => connectWallet()}
@@ -103,11 +103,9 @@ const Header = () => {
                 <HiOutlineDotsVertical />
             </div>
         </div>
-
-        </div>
-
-      </div>
-    )
+    </div>
+</div>
+  )
 }
 
 export default Header
