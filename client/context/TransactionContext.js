@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import {contractABI, contractAddress} from '../lib/constants'
+import { ethers } from 'ethers'
+
 
 export const TransactionContext = React.createContext()
 
@@ -7,6 +10,18 @@ let eth
 if (typeof window !== 'undefined') {
     eth = window.ethereum
   }
+
+const getEthereumContract = () => {
+  const provider = new ethers.providers.Web3Provider(eth)
+  const signer = provider.getSigner()
+  const transactionContract = new ethers.Contract(
+    contractAddress,
+    contractABI,
+    signer
+  )
+
+  return transactionContract
+}
 
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState()
@@ -98,7 +113,7 @@ export const TransactionProvider = ({ children }) => {
    }
 
    const handleChange = (e, name) => {
-    
+    setFormData((prevState) => ({ ...prevState, [name]: e.target.value}))
    }
    
 
@@ -110,6 +125,8 @@ export const TransactionProvider = ({ children }) => {
             currentAccount,
             connectWallet,
             sendTransaction,
+            handleChange,
+            formData
         }}
         >
             {children}
